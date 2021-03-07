@@ -1,6 +1,6 @@
 import { getQuestions, saveQuestion, saveQuestionAnswer } from '../utils/api';
 
-export const GET_POLLS = 'GET_POLLS';
+export const RECIEVE_POLLS = 'GET_POLLS';
 export const SAVE_QUESTION = 'SAVE_QUESTION';
 export const SAVE_ANSWER = 'SAVE_ANSWER';
 

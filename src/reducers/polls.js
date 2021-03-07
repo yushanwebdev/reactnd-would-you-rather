@@ -1,8 +1,8 @@
-import { GET_POLLS, SAVE_QUESTION, SAVE_ANSWER } from '../actions/polls';
+import { RECIEVE_POLLS, SAVE_QUESTION, SAVE_ANSWER } from '../actions/polls';
 
 export default function polls(state = {}, action) {
     switch(action.type) {
-        case GET_POLLS:
+        case RECIEVE_POLLS:
             return {
                 ...state,
                 ...action.polls
