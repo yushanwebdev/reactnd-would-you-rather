@@ -1,19 +1,15 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleReceivePolls } from './actions/polls';
+import Login from './components/Login';
 
 class App extends Component {
-  componentDidMount() {
-    this.props.dispatch(handleReceivePolls());
-  }
-
   render() {
     return(
       <div>
-        App
+        <Login />
       </div>
     )
   }
 }
 
-export default connect()(App);
+export default App;
