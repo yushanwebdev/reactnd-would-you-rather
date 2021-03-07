@@ -25,7 +25,7 @@ function receiveQuestion(poll) {
     }
 }
 
-export function handleSaveQuestion(question) {
+export function handleReceiveQuestion(question) {
     return (dispatch) => {
         return saveQuestion(question)
             .then((poll) => dispatch(receiveQuestion(poll)))
@@ -39,7 +39,7 @@ function receiveAnswer(answer) {
     }
 }
 
-export function handleSaveAnswer(answer) {
+export function handleReceiveAnswer(answer) {
     return (dispatch) => {
         dispatch(receiveAnswer(answer));
         return saveQuestionAnswer(answer)
