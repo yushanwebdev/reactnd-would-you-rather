@@ -28,7 +28,7 @@ function receiveQuestion(poll) {
 export function handleSaveQuestion(question) {
     return (dispatch) => {
         return saveQuestion(question)
-            .then((poll) => receiveQuestion(poll))
+            .then((poll) => dispatch(receiveQuestion(poll)))
     }
 }
 
@@ -41,7 +41,7 @@ function receiveAnswer(answer) {
 
 export function handleSaveAnswer(answer) {
     return (dispatch) => {
-        receiveAnswer(answer)
+        dispatch(receiveAnswer(answer));
         return saveQuestionAnswer(answer)
             .catch(() => {
                 console.warn('Answer is not saved.')
