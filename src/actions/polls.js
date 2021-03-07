@@ -6,7 +6,7 @@ export const SAVE_ANSWER = 'SAVE_ANSWER';
 
 function receivePolls(polls) {
     return {
-        type: GET_POLLS,
+        type: RECIEVE_POLLS,
         polls
     }
 }
