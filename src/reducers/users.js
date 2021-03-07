@@ -18,12 +18,15 @@ export default function users(state = {}, action) {
                 }
             }
         case SAVE_ANSWER:
-            const { authedUser, qid } = action.answer;
+            const { authedUser, qid, option } = action.answer;
             return {
                 ...state,
                 [authedUser]: {
                     ...state[authedUser],
-                    questions: state[authedUser].questions.concat([qid])
+                    answers: {
+                        ...state[authedUser].answers,
+                        [qid]: option
+                    }
                 }
             }
         default:
