@@ -12,6 +12,15 @@ export default function polls(state = {}, action) {
                 ...state,
                 ...action.poll
             }
+        case SAVE_ANSWER:
+            const { authedUser, qid, option } = action.answer;
+            return {
+                ...state,
+                [qid]: {
+                    ...state.polls[qid],
+                    [option]: state.polls[option].votes.concat([authedUser])
+                }
+            }
         default:
             return state;
     }
