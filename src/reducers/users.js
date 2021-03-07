@@ -1,5 +1,5 @@
 import { RECEIVE_USERS } from '../actions/users';
-import { SAVE_ANSWER } from '../actions/polls';
+import { SAVE_QUESTION, SAVE_ANSWER } from '../actions/polls';
 
 export default function users(state = {}, action) {
     switch(action.type) {
