@@ -9,12 +9,24 @@ class Login extends Component {
     }
 
     render() {
+        const { isExist } = this.props;
         return(
             <div>
-                <UserSelect />
+                <form>
+                    <UserSelect />
+                    <button disabled={isExist}>
+                        Sign In
+                    </button>
+                </form>
             </div>
         )
     }
 }
 
-export default connect()(Login);
+function mapStateToProps({ authUser }) {
+    return {
+        isExist: authUser === null
+    }
+}
+
+export default connect(mapStateToProps)(Login);
