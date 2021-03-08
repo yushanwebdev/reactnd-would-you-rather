@@ -5,7 +5,7 @@ class UserItem extends Component {
     render() {
         const { user } = this.props;
         return(
-            <option>{user.name}</option>
+            <option id={user.id}>{user.name}</option>
         )
     }
 }
