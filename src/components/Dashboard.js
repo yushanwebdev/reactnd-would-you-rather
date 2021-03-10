@@ -4,10 +4,29 @@ import Poll from './Poll';
 
 class Dashboard extends Component {
     render() {
-        console.log(this.props);
+        const { ans, unAns } = this.props;
         return(
             <div>
-                <Poll />
+                <div>
+                    <h2>Unanswered</h2>
+                    <ul>
+                        {unAns.map((item) => (
+                            <li key={item}>
+                                <Poll id={item} />
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div>
+                    <h2>Answered</h2>
+                    <ul>
+                        {ans.map((item) => (
+                            <li key={item}>
+                                <Poll id={item} />
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         )
     }
