@@ -5,6 +5,7 @@ import Login from './components/Login';
 import { handleReceivePolls } from './actions/polls';
 import { handleReceiveUsers } from './actions/users';
 import { setAuthUser } from './actions/authUser';
+import PollDetails from './components/PollDetail';
 
 class App extends Component {
   componentDidMount() {
@@ -18,7 +19,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        <Dashboard />
+        <PollDetails />
       </div>
     )
   }
