@@ -33,7 +33,7 @@ class PollQ extends Component {
 function mapStateToProps({ polls, users }, { id }) {
     const poll = polls[id];
     return {
-        poll: poll ? poll : {},
+        poll: poll ? poll : null,
         author: poll ? users[poll.author] : {}
     }
 }
