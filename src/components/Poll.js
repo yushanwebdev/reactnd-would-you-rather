@@ -15,9 +15,9 @@ class Poll extends Component {
 }
 
 function mapStateToProps({ polls, users }, { id }) {
-    const poll = polls[id];
+    const poll = polls ? polls[id]: {};
     return {
-        author: users[poll.author],
+        author: poll ? users[poll.author] : {},
         poll
     }
 }
