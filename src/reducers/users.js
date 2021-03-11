@@ -18,14 +18,14 @@ export default function users(state = {}, action) {
                 }
             }
         case SAVE_ANSWER:
-            const { authedUser, qid, option } = action.answer;
+            const { authedUser, qid, answer } = action.answer;
             return {
                 ...state,
                 [authedUser]: {
                     ...state[authedUser],
                     answers: {
                         ...state[authedUser].answers,
-                        [qid]: option
+                        [qid]: answer
                     }
                 }
             }
