@@ -1,28 +1,53 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { handleSaveAnswer } from '../actions/polls';
 
+const OPTION_ONE = 'optionOne';
+const OPTION_TWO = 'optionTwo';
+ 
 class PollQ extends Component {
+    state = {
+        option: ''
+    }
+
+    selectOption = (e) => {
+        this.setState((prev) => ({
+            option: e.target.id
+        }))
+    }
+
+    saveAnswer = (e) => {
+        e.preventDefault();
+        const { authUser, poll, dispatch } = this.props;
+        const { option } = this.state;
+        dispatch(handleSaveAnswer({
+            authedUser: authUser,
+            qid: poll.id,
+            answer: option
+        }));
+    }
+
     render() {
         const { author, poll } = this.props;
-        console.log(this.props);
+        const { option } = this.state;
         return (
             <div>
                 <div>
-                    <p>{author.name}</p>
-                    <img src={`/profiles/${author.avatarURL}`} width="50" height="50" />
+                    <p>{author?.name}</p>
+                    <img src={`/profiles/${author?.avatarURL}`} width="50" height="50" />
                 </div>
                 <div>
                     <p>Would You Rather</p>
-                    <form>
+                    <form onSubmit={this.saveAnswer}>
                         <div>
-                            <input type="radio" id="option-one" name="answer" value={poll.optionOne.text} checked="false" />
-                            <label htmlFor="option-one">{poll.optionOne.text}</label>
+                            <input type="radio" id={OPTION_ONE} name="answer" value={poll?.optionOne.text} onClick={this.selectOption} />
+                            <label htmlFor={OPTION_ONE}>{poll?.optionOne.text}</label>
                         </div>
                         <div>
-                            <input type="radio" id="option-two" name="answer" value={poll.optionTwo.text} />
-                            <label htmlFor="option-two">{poll.optionTwo.text}</label>
+                            <input type="radio" id={OPTION_TWO} name="answer" value={poll?.optionTwo.text} onClick={this.selectOption} />
+                            <label htmlFor={OPTION_TWO}>{poll?.optionTwo.text}</label>
                         </div>
-                        <button>Submit</button>
+                        <button disabled={option === ''}>Submit</button>
                     </form>
                 </div>
             </div>
@@ -30,11 +55,12 @@ class PollQ extends Component {
     }
 }
 
-function mapStateToProps({ polls, users }, { id }) {
+function mapStateToProps({ polls, users, authUser }, { id }) {
     const poll = polls[id];
     return {
-        poll: poll ? poll : null,
-        author: poll ? users[poll.author] : {}
+        poll: poll,
+        author: users[poll?.author],
+        authUser
     }
 }
 
