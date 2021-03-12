@@ -19,7 +19,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        <PollDetail id='6ni6ok3ym7mf1p33lnez' />
+        <PollDetail qid='6ni6ok3ym7mf1p33lnez' />
       </div>
     )
   }
