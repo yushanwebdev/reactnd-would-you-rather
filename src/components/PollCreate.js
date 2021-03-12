@@ -19,7 +19,7 @@ class PollCreate extends Component {
         e.preventDefault();
         const { dispatch, authUser } = this.props;
         const { optionOne, optionTwo } = this.state;
-        dispatch(handleSaveQuestion({ 
+        dispatch(handleSaveQuestion({
             optionOneText: optionOne,
             optionTwoText: optionTwo,
             author: authUser
@@ -27,22 +27,25 @@ class PollCreate extends Component {
     }
 
     render() {
-        const { optionOne, optionTwo } = this.state; 
-        return(
+        const { optionOne, optionTwo } = this.state;
+        return (
             <div>
                 <form onSubmit={this.saveQuestion}>
-                    <input 
-                        type="text" 
-                        name={process.env.REACT_APP_OPTION_ONE} 
-                        value={optionOne} 
+                    <input
+                        type="text"
+                        name={process.env.REACT_APP_OPTION_ONE}
+                        value={optionOne}
                         onChange={this.inputChange} />
                     <p>OR</p>
-                    <input 
-                        type="text" 
-                        name={process.env.REACT_APP_OPTION_TWO} 
-                        value={optionTwo} 
+                    <input
+                        type="text"
+                        name={process.env.REACT_APP_OPTION_TWO}
+                        value={optionTwo}
                         onChange={this.inputChange} />
-                    <button>Submit</button>
+                    <button
+                        disabled={optionOne === '' || optionTwo === ''}>
+                        Submit
+                    </button>
                 </form>
             </div>
         )
