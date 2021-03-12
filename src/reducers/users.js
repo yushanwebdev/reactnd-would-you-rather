@@ -9,7 +9,7 @@ export default function users(state = {}, action) {
                 ...action.users
             }
         case SAVE_QUESTION:
-            const { author, id } = action.polls;
+            const { author, id } = action.poll;
             return {
                 ...state,
                 [author]: {
