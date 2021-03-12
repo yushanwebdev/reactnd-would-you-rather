@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleSaveAnswer } from '../actions/polls';
-import { OPTION_ONE, OPTION_TWO} from '../constants';
  
 class PollQ extends Component {
     state = {
@@ -38,12 +37,12 @@ class PollQ extends Component {
                     <p>Would You Rather</p>
                     <form onSubmit={this.saveAnswer}>
                         <div>
-                            <input type="radio" id={OPTION_ONE} name="answer" value={poll?.optionOne.text} onClick={this.selectOption} />
-                            <label htmlFor={OPTION_ONE}>{poll?.optionOne.text}</label>
+                            <input type="radio" id={process.env.REACT_APP_OPTION_ONE} name="answer" value={poll?.optionOne.text} onClick={this.selectOption} />
+                            <label htmlFor={process.env.REACT_APP_OPTION_ONE}>{poll?.optionOne.text}</label>
                         </div>
                         <div>
-                            <input type="radio" id={OPTION_TWO} name="answer" value={poll?.optionTwo.text} onClick={this.selectOption} />
-                            <label htmlFor={OPTION_TWO}>{poll?.optionTwo.text}</label>
+                            <input type="radio" id={process.env.REACT_APP_OPTION_TWO} name="answer" value={poll?.optionTwo.text} onClick={this.selectOption} />
+                            <label htmlFor={process.env.REACT_APP_OPTION_TWO}>{poll?.optionTwo.text}</label>
                         </div>
                         <button disabled={option === ''}>Submit</button>
                     </form>
@@ -53,8 +52,8 @@ class PollQ extends Component {
     }
 }
 
-function mapStateToProps({ polls, users, authUser }, { id }) {
-    const poll = polls[id];
+function mapStateToProps({ polls, users, authUser }, { qid }) {
+    const poll = polls[qid];
     return {
         poll: poll,
         author: users[poll?.author],
