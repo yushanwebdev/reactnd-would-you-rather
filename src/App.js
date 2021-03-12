@@ -6,6 +6,7 @@ import { handleReceivePolls } from './actions/polls';
 import { handleReceiveUsers } from './actions/users';
 import { setAuthUser } from './actions/authUser';
 import PollDetail from './components/PollDetail';
+import PollCreate from './components/PollCreate';
 
 class App extends Component {
   componentDidMount() {
@@ -19,7 +20,7 @@ class App extends Component {
   render() {
     return(
       <div>
-        <PollDetail qid='6ni6ok3ym7mf1p33lnez' />
+        <PollCreate />
       </div>
     )
   }
