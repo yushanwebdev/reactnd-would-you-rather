@@ -5,14 +5,21 @@ import PollQ from './PollQ';
 
 class PollDetails extends Component {
     render() {
-        const { id } = this.props;
+        const { isAns, qid } = this.props;
         return(
             <div>
-                <PollQ id={id} />
-                <PollAns />
+                {isAns 
+                    ? <PollQ qid={qid} />
+                    : <PollAns qid={qid} />}
             </div>
         )
     }
 }
 
-export default connect()(PollDetails);
+function mapStateToProps({ authUser, users }, { qid }) {
+    return {
+        isAns: users[authUser]?.answers[qid] === undefined
+    }
+}
+
+export default connect(mapStateToProps)(PollDetails);
