@@ -1,9 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { handleSaveAnswer } from '../actions/polls';
-
-const OPTION_ONE = 'optionOne';
-const OPTION_TWO = 'optionTwo';
+import { OPTION_ONE, OPTION_TWO} from '../constants';
  
 class PollQ extends Component {
     state = {
