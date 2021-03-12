@@ -1,16 +1,19 @@
 import { RECIEVE_POLLS, SAVE_QUESTION, SAVE_ANSWER } from '../actions/polls';
 
 export default function polls(state = {}, action) {
-    switch(action.type) {
+    switch (action.type) {
         case RECIEVE_POLLS:
             return {
                 ...state,
                 ...action.polls
             }
         case SAVE_QUESTION:
+            const { poll, poll: { id } } = action;
             return {
                 ...state,
-                ...action.poll
+                [id]: {
+                    ...poll
+                }
             }
         case SAVE_ANSWER:
             const { authedUser, qid, answer } = action.answer;
