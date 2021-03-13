@@ -8,6 +8,7 @@ import { setAuthUser } from './actions/authUser';
 import PollDetail from './components/PollDetail';
 import PollCreate from './components/PollCreate';
 import Leaderboard from './components/Leaderboard';
+import Header from './components/Header';
 
 class App extends Component {
   componentDidMount() {
@@ -21,6 +22,7 @@ class App extends Component {
   render() {
     return(
       <div>
+        <Header />
         <Leaderboard />
       </div>
     )
