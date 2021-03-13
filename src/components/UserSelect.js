@@ -4,19 +4,17 @@ import UserItem from './UserItem';
 import { setAuthUser, unSetAuthUser } from '../actions/authUser';
 
 class UserSelect extends Component {
-    getAuthUser = (e) => {
-        const { dispatch } = this.props;
+    userSelChange = (e) => {
+        const { getAuthUser } = this.props;
         const val = e.target.value;
 
-        const action = val ? setAuthUser(val) : unSetAuthUser();
-
-        dispatch(action);
+        getAuthUser(val);
     }
 
     render() {
         const { userIds } = this.props;
         return (
-            <select onChange={this.getAuthUser}>
+            <select onChange={this.userSelChange}>
                 <option value="">Select User</option>
                 {userIds.map((user) => (
                     <UserItem key={user} id={user} />
