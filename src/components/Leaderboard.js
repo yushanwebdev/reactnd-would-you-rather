@@ -4,12 +4,16 @@ import LeaderCard from './LeaderCard';
 
 class Leaderboard extends Component {
     render() {
-        const { id } = this.props;
+        const { board } = this.props;
         return(
             <div>
-                <div>
-                    <LeaderCard id={id} />
-                </div>
+                <ul>
+                {board.map(item => (
+                    <li key={item}>
+                        <LeaderCard id={item} />
+                    </li>
+                ))}
+                </ul>
             </div>
         )
     }
