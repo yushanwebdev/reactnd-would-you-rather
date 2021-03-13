@@ -44,7 +44,7 @@ class Login extends Component {
 
 function mapStateToProps({ authUser }) {
     return {
-        isExist: authUser === null
+        isExist: !authUser === null
     }
 }
 
