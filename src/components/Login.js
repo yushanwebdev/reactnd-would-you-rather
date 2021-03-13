@@ -1,7 +1,9 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import UserSelect from './UserSelect';
+import { Redirect } from 'react-router-dom';
 import { handleReceiveUsers } from '../actions/users';
+import { handleReceivePolls } from '../actions/polls';
+import UserSelect from './UserSelect';
 
 class Login extends Component {
     componentDidMount() {
@@ -9,7 +11,10 @@ class Login extends Component {
     }
 
     login = (e) => {
+        const { isExist, dispatch } = this.props;
+
         e.preventDefault();
+
         if(isExist) {
             dispatch(handleReceivePolls());
         }
