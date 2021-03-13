@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import LeaderCard from './LeaderCard';
 
 class Leaderboard extends Component {
     render() {
@@ -7,7 +8,7 @@ class Leaderboard extends Component {
         return(
             <div>
                 <div>
-                    Leaderboard
+                    <LeaderCard />
                 </div>
             </div>
         )
