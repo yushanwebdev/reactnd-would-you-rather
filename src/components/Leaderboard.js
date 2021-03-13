@@ -4,11 +4,11 @@ import LeaderCard from './LeaderCard';
 
 class Leaderboard extends Component {
     render() {
-        console.log(this.props);
+        const { id } = this.props;
         return(
             <div>
                 <div>
-                    <LeaderCard />
+                    <LeaderCard id={id} />
                 </div>
             </div>
         )
