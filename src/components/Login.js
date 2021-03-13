@@ -8,13 +8,27 @@ class Login extends Component {
         this.props.dispatch(handleReceiveUsers());
     }
 
+    login = (e) => {
+        e.preventDefault();
+        if(isExist) {
+            dispatch(handleReceivePolls());
+        }
+    }
+
     render() {
         const { isExist } = this.props;
+
+        if(isExist) {
+            return <Redirect to="/" />
+        }
+
         return(
             <div>
                 <form>
                     <UserSelect />
-                    <button disabled={isExist}>
+                    <button 
+                        onClick={this.login}
+                        disabled={isExist}>
                         Sign In
                     </button>
                 </form>
