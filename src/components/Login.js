@@ -6,22 +6,37 @@ import { handleReceivePolls } from '../actions/polls';
 import UserSelect from './UserSelect';
 
 class Login extends Component {
+    state = {
+        val: ''
+    }
+
     componentDidMount() {
         this.props.dispatch(handleReceiveUsers());
     }
 
     login = (e) => {
         const { isExist, dispatch } = this.props;
+        const { val } = this.state;
+        const action = val ? setAuthUser(val) : unSetAuthUser();
 
         e.preventDefault();
+
+        dispatch(action);
 
         if(isExist) {
             dispatch(handleReceivePolls());
         }
     }
 
+    getAuthUser = (val) => {
+        this.setState((prev) => ({
+            val
+        }))
+    }
+
     render() {
         const { isExist } = this.props;
+        const { val } = this.state;
 
         if(isExist) {
             return <Redirect to="/home" />
@@ -30,7 +45,7 @@ class Login extends Component {
         return(
             <div>
                 <form>
-                    <UserSelect />
+                    <UserSelect getAuthUser={this.getAuthUser} />
                     <button 
                         onClick={this.login}
                         disabled={isExist}>
