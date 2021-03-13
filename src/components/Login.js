@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { handleReceiveUsers } from '../actions/users';
 import { handleReceivePolls } from '../actions/polls';
+import { setAuthUser, unSetAuthUser } from '../actions/authUser';
 import UserSelect from './UserSelect';
 
 class Login extends Component {
