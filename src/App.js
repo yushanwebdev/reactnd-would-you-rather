@@ -24,7 +24,7 @@ class App extends Component {
             <AuthRoute path="/questions/:id" component={PollDetail} />
             <AuthRoute path="/add" component={PollCreate} />
             <AuthRoute path="/leaderboard" component={Leaderboard} />
-            <AuthRoute exact path="/home" component={Dashboard} />
+            <AuthRoute path="/home" component={Dashboard} />
             <Route path="/" component={Login} />
           </Fragment>
         </Fragment>
