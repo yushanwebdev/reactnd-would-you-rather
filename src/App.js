@@ -1,6 +1,6 @@
 import { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import { handleReceivePolls } from './actions/polls';
 import { handleReceiveUsers } from './actions/users';
 import { setAuthUser } from './actions/authUser';
@@ -20,13 +20,13 @@ class App extends Component {
       <Router>
         <Fragment>
           {authUser ? <Header /> : null}
-          <Fragment>
+          <Switch>
             <AuthRoute path="/questions/:id" component={PollDetail} />
             <AuthRoute path="/add" component={PollCreate} />
             <AuthRoute path="/leaderboard" component={Leaderboard} />
             <AuthRoute path="/home" component={Dashboard} />
             <Route path="/" component={Login} />
-          </Fragment>
+          </Switch>
         </Fragment>
       </Router>
     )
