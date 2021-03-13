@@ -24,7 +24,7 @@ class Login extends Component {
         const { isExist } = this.props;
 
         if(isExist) {
-            return <Redirect to="/" />
+            return <Redirect to="/home" />
         }
 
         return(
