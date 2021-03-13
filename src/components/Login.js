@@ -49,7 +49,7 @@ class Login extends Component {
                     <UserSelect getAuthUser={this.getAuthUser} />
                     <button 
                         onClick={this.login}
-                        disabled={isExist}>
+                        disabled={val === ''}>
                         Sign In
                     </button>
                 </form>
@@ -60,7 +60,7 @@ class Login extends Component {
 
 function mapStateToProps({ authUser }) {
     return {
-        isExist: !authUser === null
+        isExist: authUser !== null
     }
 }
 
