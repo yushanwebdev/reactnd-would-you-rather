@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import UserItem from './UserItem';
-import { setAuthUser, unSetAuthUser } from '../actions/authUser';
 
 class UserSelect extends Component {
     userSelChange = (e) => {
