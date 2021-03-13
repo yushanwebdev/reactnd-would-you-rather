@@ -1,6 +1,6 @@
 import { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Redirect, Route } from 'react-router-dom';
 import { handleReceivePolls } from './actions/polls';
 import { handleReceiveUsers } from './actions/users';
 import { setAuthUser } from './actions/authUser';
@@ -10,6 +10,7 @@ import PollDetail from './components/PollDetail';
 import PollCreate from './components/PollCreate';
 import Leaderboard from './components/Leaderboard';
 import Header from './components/Header';
+import AuthRoute from './components/AuthRoute';
 
 class App extends Component {
   render() {
@@ -18,12 +19,14 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          <Header />
-          <Route path="/login" component={Login} />
-          <Route path="/questions/:id" component={PollDetail} />
-          <Route path="/add" component={PollCreate} />
-          <Route path="/leaderboard" component={Leaderboard} />
-          <Route exact path="/" component={Dashboard} />
+          {authUser ? <Header /> : null}
+          <Fragment>
+            <AuthRoute path="/questions/:id" component={PollDetail} />
+            <AuthRoute path="/add" component={PollCreate} />
+            <AuthRoute path="/leaderboard" component={Leaderboard} />
+            <AuthRoute exact path="/home" component={Dashboard} />
+            <Route path="/" component={Login} />
+          </Fragment>
         </Fragment>
       </Router>
     )
