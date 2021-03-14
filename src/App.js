@@ -11,26 +11,26 @@ import PollCreate from './components/PollCreate';
 import Leaderboard from './components/Leaderboard';
 import Header from './components/Header';
 import AuthRoute from './components/AuthRoute';
+import Demo from './components/Demo';
 
-class App extends Component {
-  render() {
-    const { authUser } = this.props;
+function App(props) {
+  const { authUser } = props;
 
-    return (
-      <Router>
-        <Fragment>
-          {authUser ? <Header /> : null}
-          <Switch>
-            <AuthRoute path="/questions/:id" component={PollDetail} />
-            <AuthRoute path="/add" component={PollCreate} />
-            <AuthRoute path="/leaderboard" component={Leaderboard} />
-            <AuthRoute path="/home" component={Dashboard} />
-            <Route path="/" component={Login} />
-          </Switch>
-        </Fragment>
-      </Router>
-    )
-  }
+  return (
+    <Router>
+      <Fragment>
+        {authUser ? <Header /> : null}
+        <Switch>
+          <AuthRoute path="/questions/:id" component={PollDetail} />
+          <AuthRoute path="/add" component={PollCreate} />
+          <AuthRoute path="/leaderboard" component={Leaderboard} />
+          <AuthRoute path="/home" component={Dashboard} />
+          <Route path="/demo" component={Demo} />
+          <Route path="/" component={Login} />
+        </Switch>
+      </Fragment>
+    </Router>
+  )
 }
 
 function mapStateToProps({ authUser }) {
