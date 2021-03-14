@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect  } from 'react-router-dom';
 import { handleReceiveUsers } from '../actions/users';
 import { handleReceivePolls } from '../actions/polls';
 import { setAuthUser, unSetAuthUser } from '../actions/authUser';
@@ -36,11 +36,12 @@ class Login extends Component {
     }
 
     render() {
-        const { isExist } = this.props;
+        const { isExist, location } = this.props;
         const { val } = this.state;
+        const prevPage = location.state ? location.state.prevLoc : '/home';
 
         if(isExist) {
-            return <Redirect to="/home" />
+            <Redirect to={prevPage} />
         }
 
         return(

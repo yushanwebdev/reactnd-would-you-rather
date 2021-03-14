@@ -2,10 +2,13 @@ import { connect } from "react-redux";
 import { Redirect, Route } from "react-router-dom";
 
 const AuthRoute = props => {
-    const { authUser } = props;
-    
+    const { authUser, location } = props;
+
     if(!authUser) {
-        return <Redirect to="/" />
+        return <Redirect to={{
+            pathname: "/",
+            state: { prevLoc: location.pathname }
+        }} />
     }
 
     return <Route {...props} />;
