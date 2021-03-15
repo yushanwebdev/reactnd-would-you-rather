@@ -38,10 +38,10 @@ class Login extends Component {
     render() {
         const { isExist, location } = this.props;
         const { val } = this.state;
-        const prevPage = location.state ? location.state.prevLoc : '/home';
+        const page = location.state ? location.state.prevLoc : '/home';
 
         if(isExist) {
-            <Redirect to={prevPage} />
+            return <Redirect to={page} />
         }
 
         return(
