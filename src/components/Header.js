@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import { unSetAuthUser } from '../actions/authUser';
 
 class Header extends Component {
@@ -13,9 +14,9 @@ class Header extends Component {
         return (
             <div>
                 <div>
-                    <a href="#">Home</a>
-                    <a href="#">New Question</a>
-                    <a href="#">Leader Board</a>
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/add">New Question</NavLink>
+                    <NavLink to="/leaderboard">Leader Board</NavLink>
                 </div>
                 <div>
                     <p>Hello, { authedUser?.name }</p>
