@@ -5,7 +5,7 @@ import UserItem from './UserItem';
 class UserSelect extends Component {
     userSelChange = (e) => {
         const { getAuthUser } = this.props;
-        const val = e.target.value;
+        const val = e.target.selectedOptions[0].id;
 
         getAuthUser(val);
     }
