@@ -1,15 +1,16 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class Poll extends Component {
     render() {
         const { author, poll } = this.props;
         return(
-            <div>
+            <Link to={`/questions/${poll.id}`}>
                 <p>{author.name}</p>
                 <img src={`/profiles/${author.avatarURL}`} width="50" height="50"/>
                 <p>...{poll.optionOne.text}...</p>
-            </div>
+            </Link>
         )
     }
 }
