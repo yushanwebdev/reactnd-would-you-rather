@@ -1,11 +1,13 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { handleSaveQuestion } from '../actions/polls';
 
 class PollCreate extends Component {
     state = {
         [process.env.REACT_APP_OPTION_ONE]: '',
-        [process.env.REACT_APP_OPTION_TWO]: ''
+        [process.env.REACT_APP_OPTION_TWO]: '',
+        toHome : false
     }
 
     inputChange = (e) => {
@@ -24,10 +26,18 @@ class PollCreate extends Component {
             optionTwoText: optionTwo,
             author: authUser
         }));
+        this.setState((prev) => ({
+            toHome: true
+        }))
     }
 
     render() {
-        const { optionOne, optionTwo } = this.state;
+        const { optionOne, optionTwo, toHome } = this.state;
+
+        if(toHome) {
+            return <Redirect to="/" />
+        }
+
         return (
             <div>
                 <form onSubmit={this.saveQuestion}>
