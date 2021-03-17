@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PollAns from './PollAns';
 import PollQ from './PollQ';
 
-class PollDetails extends Component {
+class PollDetail extends Component {
     render() {
         const { isAns, qid } = this.props;
         return(
@@ -16,10 +16,12 @@ class PollDetails extends Component {
     }
 }
 
-function mapStateToProps({ authUser, users }, { qid }) {
+function mapStateToProps({ authUser, users }, props) {
+    const qid = props.match.params.id;
     return {
-        isAns: users[authUser]?.answers[qid] === undefined
+        isAns: users[authUser]?.answers[qid] === undefined,
+        qid
     }
 }
 
-export default connect(mapStateToProps)(PollDetails);
+export default connect(mapStateToProps)(PollDetail);
