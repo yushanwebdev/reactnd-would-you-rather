@@ -22,7 +22,6 @@ function App(props) {
           <AuthRoute path="/add" component={PollCreate} />
           <AuthRoute path="/leaderboard" component={Leaderboard} />
           <AuthRoute path="/home" component={Dashboard} />
-          <Route path="/demo" component={Demo} />
           <Route path="/" component={Login} />
         </Switch>
       </Fragment>
