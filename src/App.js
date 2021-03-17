@@ -8,7 +8,6 @@ import PollCreate from './components/PollCreate';
 import Leaderboard from './components/Leaderboard';
 import Header from './components/Header';
 import AuthRoute from './components/AuthRoute';
-import Demo from './components/Demo';
 
 function App(props) {
   const { authUser } = props;
