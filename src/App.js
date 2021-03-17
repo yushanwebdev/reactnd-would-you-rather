@@ -1,9 +1,6 @@
-import { Component, Fragment } from 'react';
+import { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
-import { handleReceivePolls } from './actions/polls';
-import { handleReceiveUsers } from './actions/users';
-import { setAuthUser } from './actions/authUser';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import PollDetail from './components/PollDetail';
