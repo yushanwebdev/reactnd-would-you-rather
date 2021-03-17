@@ -12,11 +12,14 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        this.props.dispatch(handleReceiveUsers());
+        const { isUsers, dispatch } = this.props;
+
+        if(!isUsers)
+            dispatch(handleReceiveUsers());
     }
 
     login = (e) => {
-        const { isExist, dispatch } = this.props;
+        const { isPolls, dispatch } = this.props;
         const { val } = this.state;
         const action = val ? setAuthUser(val) : unSetAuthUser();
 
@@ -24,9 +27,8 @@ class Login extends Component {
 
         dispatch(action);
 
-        if(isExist) {
+        if(!isPolls)
             dispatch(handleReceivePolls());
-        }
     }
 
     getAuthUser = (val) => {
@@ -59,9 +61,11 @@ class Login extends Component {
     }
 }
 
-function mapStateToProps({ authUser }) {
+function mapStateToProps({ authUser, polls, users }) {
     return {
-        isExist: authUser !== null
+        isExist: authUser !== null,
+        isPolls: Object.keys(polls).length,
+        isUsers: Object.keys(users).length
     }
 }
 
