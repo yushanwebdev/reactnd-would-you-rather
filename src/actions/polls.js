@@ -42,9 +42,6 @@ function receiveAnswer(answer) {
 export function handleSaveAnswer(answer) {
     return (dispatch) => {
         dispatch(receiveAnswer(answer));
-        return saveQuestionAnswer(answer)
-            .catch(() => {
-                console.warn('Answer is not saved.')
-            })
+        return saveQuestionAnswer(answer);
     }
 }
