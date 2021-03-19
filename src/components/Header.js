@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
 import { unSetAuthUser } from '../actions/authUser';
 
 class Header extends Component {
@@ -12,20 +13,28 @@ class Header extends Component {
     render() {
         const { authedUser } = this.props;
         return (
-            <div>
-                <div>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/add">New Question</NavLink>
-                    <NavLink to="/leaderboard">Leader Board</NavLink>
-                </div>
-                <div>
-                    <p>Hello, { authedUser?.name }</p>
-                    <img src={`/profiles/${authedUser?.avatarURL}`} width="20" height="20"/>
-                </div>
-                <div>
-                    <button onClick={this.logout}>Logout</button>
-                </div>
-            </div>
+            <Navbar bg="light" expand="lg">
+                <NavLink className="navbar-brand" to="/">Would You</NavLink>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="navbar-nav mr-auto">
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/add">New Question</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link" to="/leaderboard">Leader Board</NavLink>
+                        </li>
+                    </Nav>
+                    <div>
+                        <img 
+                            src={`/profiles/${authedUser?.avatarURL}`} 
+                            width="30" 
+                            height="30" 
+                            className="mr-2" />
+                        <button className="btn btn-primary" onClick={this.logout}>Logout</button>
+                    </div>
+                </Navbar.Collapse>
+            </Navbar>
         )
     }
 }
