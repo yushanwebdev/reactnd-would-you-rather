@@ -7,7 +7,8 @@ class PollCreate extends Component {
     state = {
         [process.env.REACT_APP_OPTION_ONE]: '',
         [process.env.REACT_APP_OPTION_TWO]: '',
-        toHome : false
+        toHome : false,
+        isSave: true
     }
 
     inputChange = (e) => {
@@ -25,14 +26,21 @@ class PollCreate extends Component {
             optionOneText: optionOne,
             optionTwoText: optionTwo,
             author: authUser
-        }));
-        this.setState((prev) => ({
-            toHome: true
         }))
+            .then(() => {
+                this.setState((prev) => ({
+                    toHome: true
+                }))
+            })
+            .catch((e) => {
+                this.setState((prev) => ({
+                    isSave: false
+                }))
+            });
     }
 
     render() {
-        const { optionOne, optionTwo, toHome } = this.state;
+        const { optionOne, optionTwo, toHome, isSave } = this.state;
 
         if(toHome) {
             return <Redirect to="/" />
@@ -40,6 +48,7 @@ class PollCreate extends Component {
 
         return (
             <div>
+                {!isSave ? <div>Question not saved.</div> : null}
                 <form onSubmit={this.saveQuestion}>
                     <input
                         type="text"
