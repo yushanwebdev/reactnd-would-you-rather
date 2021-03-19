@@ -1,1 +1,12 @@
 @import "~bootstrap/scss/bootstrap";
+
+.login {
+    height: 100vh;
+
+    .card {
+        width: 75%;
+        @include media-breakpoint-up(lg) {
+            width: 30%;
+        }
+    }
+}

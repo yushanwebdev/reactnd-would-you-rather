@@ -13,7 +13,7 @@ class UserSelect extends Component {
     render() {
         const { userIds } = this.props;
         return (
-            <select onChange={this.userSelChange}>
+            <select className="form-control mb-3" onChange={this.userSelChange}>
                 <option value="">Select User</option>
                 {userIds.map((user) => (
                     <UserItem key={user} id={user} />
