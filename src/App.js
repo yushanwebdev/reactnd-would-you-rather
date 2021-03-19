@@ -9,6 +9,8 @@ import Leaderboard from './components/Leaderboard';
 import Header from './components/Header';
 import AuthRoute from './components/AuthRoute';
 
+import './App.scss';
+
 function App(props) {
   const { authUser } = props;
 
