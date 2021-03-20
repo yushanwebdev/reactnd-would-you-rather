@@ -1,3 +1,4 @@
+import { showLoading, hideLoading } from 'react-redux-loading';
 import { getQuestions, saveQuestion, saveQuestionAnswer } from '../utils/api';
 
 export const RECIEVE_POLLS = 'GET_POLLS';
@@ -13,8 +14,10 @@ function receivePolls(polls) {
 
 export function handleReceivePolls() {
     return (dispatch) => {
+        dispatch(showLoading());
         return getQuestions()
             .then((polls) => dispatch(receivePolls(polls)))
+            .then(() => dispatch(hideLoading()))
     }
 }
 
@@ -27,8 +30,10 @@ function receiveQuestion(poll) {
 
 export function handleSaveQuestion(question) {
     return (dispatch) => {
+        dispatch(showLoading());
         return saveQuestion(question)
             .then((poll) => dispatch(receiveQuestion(poll)))
+            .then(() => dispatch(hideLoading()))
     }
 }
 
