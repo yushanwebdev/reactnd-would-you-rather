@@ -26,11 +26,13 @@ class Header extends Component {
                         </li>
                     </Nav>
                     <div>
+                        <span>Hello, {authedUser?.name}</span>
                         <img 
                             src={`/profiles/${authedUser?.avatarURL}`} 
                             width="30" 
                             height="30" 
-                            className="mr-2" />
+                            className="ml-3 mr-2"
+                            alt={authedUser?.name} />
                         <button className="btn btn-primary" onClick={this.logout}>Logout</button>
                     </div>
                 </Navbar.Collapse>

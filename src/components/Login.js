@@ -49,7 +49,7 @@ class Login extends Component {
         return (
             <div className="d-flex justify-content-center align-items-center login">
                 <div className="card">
-                    <div class="card-body">
+                    <div className="card-body">
                         <h1 className="mb-4">Login</h1>
                         <form>
                             <UserSelect getAuthUser={this.getAuthUser} />

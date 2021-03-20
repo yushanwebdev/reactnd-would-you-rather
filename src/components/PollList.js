@@ -1,6 +1,6 @@
 import Poll from "./Poll";
 
-export default (props) => {
+const PollList = (props) => {
     const { list } = props;
     return (
         <div className="poll-list">
@@ -14,3 +14,5 @@ export default (props) => {
         </div>
     )
 }
+
+export default PollList;

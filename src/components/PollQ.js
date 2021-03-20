@@ -33,12 +33,12 @@ class PollQ extends Component {
                 <Card.Header as="h6">{author?.name} asks</Card.Header>
                 <Card.Body className="d-flex">
                     <div>
-                        <img src={`/profiles/${author?.avatarURL}`} width="100" height="100" />
+                        <img src={`/profiles/${author?.avatarURL}`} width="100" height="100" alt={author?.name} />
                     </div>
                     <div className="pl-5">
                         <p>Would You Rather</p>
                         <form onSubmit={this.saveAnswer}>
-                            <div class="form-check">
+                            <div className="form-check">
                                 <input 
                                     type="radio" 
                                     id={process.env.REACT_APP_OPTION_ONE} name="answer" 
@@ -51,7 +51,7 @@ class PollQ extends Component {
                                     {poll?.optionOne.text}
                                 </label>
                             </div>
-                            <div class="form-check mb-3">
+                            <div className="form-check mb-3">
                                 <input 
                                     type="radio" 
                                     id={process.env.REACT_APP_OPTION_TWO} name="answer" 
@@ -67,7 +67,7 @@ class PollQ extends Component {
                             <button 
                                 type="submit" 
                                 disabled={option === ''}
-                                class="btn btn-primary">
+                                className="btn btn-primary">
                                 Submit
                             </button>
                         </form>

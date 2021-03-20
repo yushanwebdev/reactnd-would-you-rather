@@ -11,7 +11,7 @@ class PollAns extends Component {
                 <Card.Header as="h6">Asked by {author?.name}</Card.Header>
                 <Card.Body className="d-flex">
                     <div>
-                        <img src={`/profiles/${author?.avatarURL}`} width="100" height="100" />
+                        <img src={`/profiles/${author?.avatarURL}`} width="100" height="100" alt={author?.name} />
                     </div>
                     <div className="pl-4">
                         <p>Results:</p>
