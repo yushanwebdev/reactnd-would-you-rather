@@ -6,7 +6,7 @@
     .card {
         width: 75%;
         @include media-breakpoint-up(lg) {
-            width: 30%;
+            max-width: 430px;
         }
     }
 }
@@ -47,4 +47,8 @@
             height: 23px;
         }
     }
+}
+
+.poll-detail {
+    max-width: 500px;
 }

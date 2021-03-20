@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PollAns from './PollAns';
 import PollQ from './PollQ';
@@ -7,11 +8,11 @@ class PollDetail extends Component {
     render() {
         const { isAns, qid } = this.props;
         return(
-            <div>
+            <Container className="poll-detail">
                 {isAns 
                     ? <PollQ qid={qid} />
                     : <PollAns qid={qid} />}
-            </div>
+            </Container>
         )
     }
 }
