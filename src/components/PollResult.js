@@ -10,7 +10,7 @@ const PollResult = (props) => {
         totalVotes
     } = props;
     const isAns = userAns === ansConst;
-    const percent = ansVotes / totalVotes * 100;
+    const percent = (ansVotes / totalVotes * 100).toFixed(1);
 
     return (
         <Card
@@ -21,7 +21,7 @@ const PollResult = (props) => {
                 {isAns
                     ? <span className="vote">Your Vote</span>
                     : null}
-                <p>Would you rather {ansText}</p>
+                <p>{`Would you rather ${ansText}`}</p>
                 <ProgressBar now={percent} label={`${percent}%`} />
                 <span>{`${ansVotes} out of ${totalVotes}`}</span>
             </Card.Body>
