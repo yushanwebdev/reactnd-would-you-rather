@@ -9,6 +9,7 @@ import PollAdd from './components/PollAdd';
 import Leaderboard from './components/Leaderboard';
 import Header from './components/Header';
 import AuthRoute from './components/AuthRoute';
+import NotFound from './components/NotFound';
 
 import './App.scss';
 
@@ -25,7 +26,8 @@ function App(props) {
           <AuthRoute path="/add" component={PollAdd} />
           <AuthRoute path="/leaderboard" component={Leaderboard} />
           <AuthRoute path="/home" component={Dashboard} />
-          <Route path="/" component={Login} />
+          <Route exact path="/" component={Login} />
+          <Route path="*" component={NotFound} />
         </Switch>
       </Fragment>
     </Router>
