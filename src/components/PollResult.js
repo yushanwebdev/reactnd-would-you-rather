@@ -1,28 +1,32 @@
-import { Component } from 'react';
 import { Card, ProgressBar } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
-class PollResult extends Component {
-    render() {
-        const { userAns, ansText, ansConst, ansVotes, totalVotes } = this.props;
-        const isAns = userAns === ansConst;
-        const percent = ansVotes / totalVotes * 100
-        return (
-            <Card 
-                bg={isAns ? "success" : "light"} 
-                text={isAns ? "white" : "dark"}
-                className="poll-result">
-                <Card.Body>
-                    {isAns
-                        ? <span className="vote">Your Vote</span>
-                        : null}
-                    <p>Would you rather {ansText}</p>
-                    <ProgressBar now={percent} label={`${percent}%`} />
-                    <span>{`${ansVotes} out of ${totalVotes}`}</span>
-                </Card.Body>
-            </Card>
-        )
-    }
+const PollResult = (props) => {
+    const {
+        userAns,
+        ansText,
+        ansConst,
+        ansVotes,
+        totalVotes
+    } = props;
+    const isAns = userAns === ansConst;
+    const percent = ansVotes / totalVotes * 100;
+
+    return (
+        <Card
+            bg={isAns ? "success" : "light"}
+            text={isAns ? "white" : "dark"}
+            className="poll-result">
+            <Card.Body>
+                {isAns
+                    ? <span className="vote">Your Vote</span>
+                    : null}
+                <p>Would you rather {ansText}</p>
+                <ProgressBar now={percent} label={`${percent}%`} />
+                <span>{`${ansVotes} out of ${totalVotes}`}</span>
+            </Card.Body>
+        </Card>
+    )
 }
 
 function mapStateToProps({ polls, users, authUser }, { qid, ansConst }) {
