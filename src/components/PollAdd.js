@@ -8,8 +8,7 @@ class PollAdd extends Component {
     state = {
         [process.env.REACT_APP_OPTION_ONE]: '',
         [process.env.REACT_APP_OPTION_TWO]: '',
-        toHome: false,
-        isSave: true
+        toHome: false
     }
 
     inputChange = (e) => {
@@ -27,17 +26,10 @@ class PollAdd extends Component {
             optionOneText: optionOne,
             optionTwoText: optionTwo,
             author: authUser
-        }))
-            .then(() => {
-                this.setState((prev) => ({
-                    toHome: true
-                }))
-            })
-            .catch((e) => {
-                this.setState((prev) => ({
-                    isSave: false
-                }))
-            });
+        }));
+        this.setState((prev) => ({
+            toHome: true
+        }));
     }
 
     render() {
@@ -50,7 +42,6 @@ class PollAdd extends Component {
         return (
             <Container className="poll-add">
                 <h2 className="mb-4">Add Your Poll</h2>
-                {!isSave ? <div>Question not saved.</div> : null}
                 <form onSubmit={this.saveQuestion}>
                     <input
                         type="text"
