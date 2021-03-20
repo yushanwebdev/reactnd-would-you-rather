@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import LoadingBar from 'react-redux-loading';
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import PollDetail from './components/PollDetail';
@@ -17,6 +18,7 @@ function App(props) {
   return (
     <Router>
       <Fragment>
+        <LoadingBar />
         {authUser ? <Header /> : null}
         <Switch>
           <AuthRoute path="/questions/:id" component={PollDetail} />
