@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { Tabs, Tab } from 'react-bootstrap';
+import { Container, Tabs, Tab } from 'react-bootstrap';
 import PollList from './PollList';
 
 class Dashboard extends Component {
@@ -9,14 +9,16 @@ class Dashboard extends Component {
         const unAnsTitle = "Unanswered";
         const ansTitle = "Answered";
         return (
-            <Tabs id="dashboard">
-                <Tab eventKey="unanswer" title={unAnsTitle}>
-                    <PollList list={unAns} />
-                </Tab>
-                <Tab eventKey="answer" title={ansTitle}>
-                    <PollList list={ans} />
-                </Tab>
-            </Tabs>
+            <Container className="mt-5 dashboard">
+                <Tabs>
+                    <Tab eventKey="unanswer" title={unAnsTitle}>
+                        <PollList list={unAns} />
+                    </Tab>
+                    <Tab eventKey="answer" title={ansTitle}>
+                        <PollList list={ans} />
+                    </Tab>
+                </Tabs>
+            </Container>
         )
     }
 }

@@ -3,7 +3,7 @@ import Poll from "./Poll";
 export default (props) => {
     const { list } = props;
     return (
-        <div>
+        <div className="poll-list">
             <ul>
                 {list.map((item) => (
                     <li key={item}>
