@@ -83,3 +83,25 @@
 .poll-add {
     max-width: 400px;
 }
+
+.leader-board {
+    @include media-breakpoint-up(lg) {
+        max-width: 600px;
+    }
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+}
+
+.leader-card {
+    flex-direction: row;
+    .score-title {
+        @include media-breakpoint-down(sm) {
+            padding: {
+                left: 10px;
+                right: 10px;
+            }
+        }
+    }
+}

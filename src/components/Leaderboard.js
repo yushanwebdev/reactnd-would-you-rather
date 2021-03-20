@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import LeaderCard from './LeaderCard';
 
@@ -6,15 +7,15 @@ class Leaderboard extends Component {
     render() {
         const { board } = this.props;
         return(
-            <div>
+            <Container className="leader-board">
                 <ul>
                 {board.map(item => (
-                    <li key={item}>
+                    <li key={item} className="mb-4">
                         <LeaderCard id={item} />
                     </li>
                 ))}
                 </ul>
-            </div>
+            </Container>
         )
     }
 }
