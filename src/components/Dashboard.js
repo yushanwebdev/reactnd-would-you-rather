@@ -1,26 +1,23 @@
-import { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Tabs, Tab } from 'react-bootstrap';
 import PollList from './PollList';
 
-class Dashboard extends Component {
-    render() {
-        const { unAns, ans } = this.props;
-        const unAnsTitle = "Unanswered";
-        const ansTitle = "Answered";
-        return (
-            <Container className="dashboard">
-                <Tabs>
-                    <Tab eventKey="unanswer" title={unAnsTitle}>
-                        <PollList list={unAns} />
-                    </Tab>
-                    <Tab eventKey="answer" title={ansTitle}>
-                        <PollList list={ans} />
-                    </Tab>
-                </Tabs>
-            </Container>
-        )
-    }
+const Dashboard = (props) => {
+    const { unAns, ans } = props;
+    const unAnsTitle = "Unanswered";
+    const ansTitle = "Answered";
+    return (
+        <Container className="dashboard">
+            <Tabs>
+                <Tab eventKey="unanswer" title={unAnsTitle}>
+                    <PollList list={unAns} />
+                </Tab>
+                <Tab eventKey="answer" title={ansTitle}>
+                    <PollList list={ans} />
+                </Tab>
+            </Tabs>
+        </Container>
+    )
 }
 
 function mapStateToProps({ users, authUser, polls }) {
