@@ -33,7 +33,7 @@ class PollAdd extends Component {
     }
 
     render() {
-        const { optionOne, optionTwo, toHome, isSave } = this.state;
+        const { optionOne, optionTwo, toHome } = this.state;
 
         if (toHome) {
             return <Redirect to="/" />
