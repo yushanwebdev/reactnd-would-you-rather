@@ -9,7 +9,7 @@ class Dashboard extends Component {
         const unAnsTitle = "Unanswered";
         const ansTitle = "Answered";
         return (
-            <Container className="mt-5 dashboard">
+            <Container className="dashboard">
                 <Tabs>
                     <Tab eventKey="unanswer" title={unAnsTitle}>
                         <PollList list={unAns} />

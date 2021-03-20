@@ -13,7 +13,7 @@ class Header extends Component {
     render() {
         const { authedUser } = this.props;
         return (
-            <Navbar bg="light" expand="lg">
+            <Navbar bg="light" expand="lg" className="mb-5">
                 <NavLink className="navbar-brand" to="/">Would You Rather</NavLink>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
