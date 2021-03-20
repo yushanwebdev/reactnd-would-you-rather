@@ -1,13 +1,11 @@
-import { Component } from 'react';
 import { connect } from 'react-redux';
 
-class UserItem extends Component {
-    render() {
-        const { user } = this.props;
-        return(
-            <option id={user.id}>{user.name}</option>
-        )
-    }
+const UserItem = (props) => {
+    const { user } = props;
+
+    return(
+        <option id={user.id}>{user.name}</option>
+    )
 }
 
 function mapStateToProps({ users }, { id }) {
