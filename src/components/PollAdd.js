@@ -1,13 +1,14 @@
 import { Component } from 'react';
+import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { handleSaveQuestion } from '../actions/polls';
 
-class PollCreate extends Component {
+class PollAdd extends Component {
     state = {
         [process.env.REACT_APP_OPTION_ONE]: '',
         [process.env.REACT_APP_OPTION_TWO]: '',
-        toHome : false,
+        toHome: false,
         isSave: true
     }
 
@@ -42,31 +43,36 @@ class PollCreate extends Component {
     render() {
         const { optionOne, optionTwo, toHome, isSave } = this.state;
 
-        if(toHome) {
+        if (toHome) {
             return <Redirect to="/" />
         }
 
         return (
-            <div>
+            <Container className="poll-add">
+                <h2 className="mb-4">Add Your Poll</h2>
                 {!isSave ? <div>Question not saved.</div> : null}
                 <form onSubmit={this.saveQuestion}>
                     <input
                         type="text"
                         name={process.env.REACT_APP_OPTION_ONE}
                         value={optionOne}
-                        onChange={this.inputChange} />
+                        onChange={this.inputChange}
+                        className="form-control mb-3" />
                     <p>OR</p>
                     <input
                         type="text"
                         name={process.env.REACT_APP_OPTION_TWO}
                         value={optionTwo}
-                        onChange={this.inputChange} />
+                        onChange={this.inputChange}
+                        className="form-control mb-3" />
                     <button
-                        disabled={optionOne === '' || optionTwo === ''}>
+                        type="submit" 
+                        disabled={optionOne === '' || optionTwo === ''}
+                        className="btn btn-primary">
                         Submit
                     </button>
                 </form>
-            </div>
+            </Container>
         )
     }
 }
@@ -77,4 +83,4 @@ function mapStateToProps({ authUser }) {
     }
 }
 
-export default connect(mapStateToProps)(PollCreate);
+export default connect(mapStateToProps)(PollAdd);
