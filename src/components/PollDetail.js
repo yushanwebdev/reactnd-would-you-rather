@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PollAns from './PollAns';

@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import { Card } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import PollResult from './PollResult';
