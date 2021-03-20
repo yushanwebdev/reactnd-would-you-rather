@@ -7,7 +7,7 @@ class PollAns extends Component {
     render() {
         const { author, qid } = this.props;
         return (
-            <Card className="poll-q">
+            <Card className="poll-detail-info">
                 <Card.Header as="h6">Asked by {author?.name}</Card.Header>
                 <Card.Body className="d-flex">
                     <div>
@@ -17,7 +17,7 @@ class PollAns extends Component {
                         <p>Results:</p>
                         <div>
                             <ul>
-                                <li>
+                                <li className="mb-3">
                                     <PollResult
                                         qid={qid}
                                         ansConst={process.env.REACT_APP_OPTION_ONE} />

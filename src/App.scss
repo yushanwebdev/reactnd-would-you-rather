@@ -52,3 +52,30 @@
 .poll-detail {
     max-width: 500px;
 }
+
+.poll-detail-info {
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+}
+
+.poll-result {
+    .vote {
+        font-size: 10px;
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        right: -14px;
+        top: -14px;
+        line-height: 11px;
+        text-align: center;
+        padding-top: 4px;
+        background-color: $yellow;
+    }
+    .progress-bar {
+        min-width: 26px;
+    }
+}

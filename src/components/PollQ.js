@@ -29,7 +29,7 @@ class PollQ extends Component {
         const { author, poll } = this.props;
         const { option } = this.state;
         return (
-            <Card className="poll-q">
+            <Card className="poll-detail-info">
                 <Card.Header as="h6">{author?.name} asks</Card.Header>
                 <Card.Body className="d-flex">
                     <div>
