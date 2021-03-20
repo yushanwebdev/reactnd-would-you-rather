@@ -26,8 +26,8 @@ function App(props) {
           <AuthRoute path="/add" component={PollAdd} />
           <AuthRoute path="/leaderboard" component={Leaderboard} />
           <AuthRoute path="/home" component={Dashboard} />
-          <Route exact path="/" component={Login} />
-          <Route path="*" component={NotFound} />
+          <Route path="/404" component={NotFound} />
+          <Route path="/" component={Login} />
         </Switch>
       </Fragment>
     </Router>
