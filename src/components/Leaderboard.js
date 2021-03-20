@@ -1,23 +1,20 @@
-import { Component } from 'react';
 import { Container } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import LeaderCard from './LeaderCard';
 
-class Leaderboard extends Component {
-    render() {
-        const { board } = this.props;
-        return(
-            <Container className="leader-board">
-                <ul>
+const Leaderboard = (props) => {
+    const { board } = props;
+    return (
+        <Container className="leader-board">
+            <ul>
                 {board.map(item => (
                     <li key={item} className="mb-4">
                         <LeaderCard id={item} />
                     </li>
                 ))}
-                </ul>
-            </Container>
-        )
-    }
+            </ul>
+        </Container>
+    )
 }
 
 function mapStateToProps({ users }) {
