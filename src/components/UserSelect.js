@@ -1,26 +1,22 @@
-import { Component } from 'react';
 import { connect } from 'react-redux';
 import UserItem from './UserItem';
 
-class UserSelect extends Component {
-    userSelChange = (e) => {
-        const { getAuthUser } = this.props;
+const UserSelect = (props) => {
+    const { userIds, getAuthUser } = props;
+    const userSelChange = (e) => {
         const val = e.target.selectedOptions[0].id;
 
         getAuthUser(val);
     }
 
-    render() {
-        const { userIds } = this.props;
-        return (
-            <select className="form-control mb-3" onChange={this.userSelChange}>
-                <option value="">Select User</option>
-                {userIds.map((user) => (
-                    <UserItem key={user} id={user} />
-                ))}
-            </select>
-        )
-    }
+    return (
+        <select className="form-control mb-3" onChange={userSelChange}>
+            <option value="">Select User</option>
+            {userIds.map((user) => (
+                <UserItem key={user} id={user} />
+            ))}
+        </select>
+    )
 }
 
 function mapStateToProps({ users }) {
