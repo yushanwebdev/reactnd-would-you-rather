@@ -7,15 +7,17 @@ import PollQ from './PollQ';
 const PollDetail = (props) => {
     const { isAns, isPolls, isExist, qid } = props;
 
-    if(isPolls && !isExist) {
+    if (isPolls && !isExist) {
         return <Redirect to="/404" />
     }
 
     return (
         <Container className="poll-detail">
-            {isAns
-                ? <PollQ qid={qid} />
-                : <PollAns qid={qid} />}
+            {isPolls
+                ? isAns
+                    ? <PollQ qid={qid} />
+                    : <PollAns qid={qid} />
+                : <p>Loading...</p>}
         </Container>
     )
 }
@@ -25,7 +27,7 @@ function mapStateToProps({ authUser, users, polls }, props) {
     return {
         isAns: users[authUser]?.answers[qid] === undefined,
         isPolls: Object.keys(polls).length,
-        isExist: polls[qid], 
+        isExist: polls[qid],
         qid
     }
 }
