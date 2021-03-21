@@ -37,7 +37,7 @@ const Header = (props) => {
                         height="30"
                         className="ml-3 mr-2"
                         alt={authedUser?.name} />
-                    <button className="btn btn-primary" onClick={logout}>Logout</button>
+                    <button className="btn btn-dark" onClick={logout}>Logout</button>
                 </div>
             </Navbar.Collapse>
         </Navbar>

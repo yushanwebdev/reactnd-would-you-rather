@@ -59,7 +59,7 @@ class PollAdd extends Component {
                     <button
                         type="submit" 
                         disabled={optionOne === '' || optionTwo === ''}
-                        className="btn btn-primary">
+                        className="btn btn-dark">
                         Submit
                     </button>
                 </form>

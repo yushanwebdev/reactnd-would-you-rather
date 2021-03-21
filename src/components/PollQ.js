@@ -67,7 +67,7 @@ class PollQ extends Component {
                             <button 
                                 type="submit" 
                                 disabled={option === ''}
-                                className="btn btn-primary">
+                                className="btn btn-dark">
                                 Submit
                             </button>
                         </form>

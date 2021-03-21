@@ -57,7 +57,7 @@ class Login extends Component {
                             <button
                                 onClick={this.login}
                                 disabled={val === ''}
-                                className="btn btn-primary">
+                                className="btn btn-dark">
                                 Sign In
                             </button>
                         </form>
