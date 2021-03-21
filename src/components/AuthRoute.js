@@ -14,8 +14,10 @@ const AuthRoute = props => {
     return <Route {...props} />;
 };
 
-const mapStateToProps = ({ authUser }) => ({
-    authUser
-});
+function mapStateToProps({ authUser }) {
+    return {
+        authUser
+    }
+}
 
 export default connect(mapStateToProps)(AuthRoute);
