@@ -1,5 +1,4 @@
 import { Fragment } from 'react';
-import { connect } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LoadingBar from 'react-redux-loading';
 import Dashboard from './components/Dashboard';
@@ -13,20 +12,18 @@ import NotFound from './components/NotFound';
 
 import './App.scss';
 
-function App(props) {
-  const { authUser } = props;
-
+const App = () => {
   return (
     <Router>
       <Fragment>
         <LoadingBar />
-        {authUser ? <Header /> : null}
+        <Header />
         <Switch>
           <AuthRoute path="/questions/:id" component={PollDetail} />
           <AuthRoute path="/add" component={PollAdd} />
           <AuthRoute path="/leaderboard" component={Leaderboard} />
           <AuthRoute path="/home" component={Dashboard} />
-          <Route path="/404" component={NotFound} />
+          <AuthRoute path="/404" component={NotFound} />
           <Route path="/" component={Login} />
         </Switch>
       </Fragment>
@@ -34,10 +31,4 @@ function App(props) {
   )
 }
 
-function mapStateToProps({ authUser }) {
-  return {
-    authUser
-  }
-}
-
-export default connect(mapStateToProps)(App);
+export default App;

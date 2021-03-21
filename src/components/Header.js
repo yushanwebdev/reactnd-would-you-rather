@@ -1,13 +1,19 @@
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 import { unSetAuthUser } from '../actions/authUser';
 
 const Header = (props) => {
-    const { authedUser, dispatch } = props;
+    const { authedUser, dispatch, history } = props;
     const logout = (e) => {
         e.preventDefault();
         dispatch(unSetAuthUser());
+        history.push('/');
+    }
+
+    if(!authedUser) {
+        return null;
     }
 
     return (
@@ -44,4 +50,4 @@ function mapStateToProps({ authUser, users }) {
     }
 }
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));
